@@ -1,0 +1,335 @@
+@import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+/* ============================================
+   Deep Space Cosmic Theme — Design Tokens
+   ============================================ */
+
+@theme inline {
+  --color-cosmic-bg: var(--cosmic-bg-primary);
+  --color-cosmic-surface: var(--cosmic-bg-card);
+  --color-cosmic-border: var(--cosmic-orbit-glow);
+  --color-cosmic-primary: var(--cosmic-accent-cyan);
+  --color-cosmic-accent: var(--cosmic-accent-purple);
+  --color-cosmic-gold: var(--cosmic-accent-gold);
+  --color-cosmic-text: var(--cosmic-text-primary);
+  --color-cosmic-muted: var(--cosmic-star-dim);
+  /* Backward-compat aliases for cyber-* prefix used in components */
+  --color-cyber-primary: var(--cosmic-accent-cyan);
+  --color-cyber-accent: var(--cosmic-accent-purple);
+  --color-cyber-surface: var(--cosmic-bg-card);
+  --color-cyber-border: var(--cosmic-orbit-glow);
+  --color-cyber-bg: var(--cosmic-bg-primary);
+  --color-cyber-text: var(--cosmic-text-primary);
+  --color-cyber-muted: var(--cosmic-star-dim);
+  --font-sans: var(--font-inter), "Noto Sans SC", system-ui, sans-serif;
+  --font-mono: var(--font-mono-font), "JetBrains Mono", monospace;
+  --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-orbit: orbit 20s linear infinite;
+  --animate-orbit-reverse: orbit 15s linear reverse infinite;
+  --animate-twinkle: twinkle 3s ease-in-out infinite;
+  --animate-scanline: scanline 8s linear infinite;
+  --animate-constellation: constellation-draw 4s ease-in-out;
+}
+
+/* ============================================
+   Light Mode — LEO (Low Earth Orbit) Daylight
+   ============================================ */
+:root {
+  --cosmic-bg-primary: #f0f4ff;
+  --cosmic-bg-secondary: #e8edf8;
+  --cosmic-bg-card: rgba(255, 255, 255, 0.75);
+  --cosmic-accent-cyan: #0284c7;
+  --cosmic-accent-purple: #7c3aed;
+  --cosmic-accent-gold: #f59e0b;
+  --cosmic-accent-magenta: #c026d3;
+  --cosmic-star-bright: #1e293b;
+  --cosmic-star-dim: rgba(30, 41, 59, 0.35);
+  --cosmic-orbit-glow: rgba(2, 132, 199, 0.2);
+  --cosmic-text-primary: #1e293b;
+  --cosmic-text-glow: rgba(2, 132, 199, 0.7);
+  --cosmic-danger: #dc2626;
+  --cosmic-success: #059669;
+  /* Backward-compat aliases for cyber-* CSS vars */
+  --cyber-primary: var(--cosmic-accent-cyan);
+  --cyber-accent: var(--cosmic-accent-purple);
+  --cyber-surface: var(--cosmic-bg-card);
+  --cyber-border: var(--cosmic-orbit-glow);
+  --cyber-bg: var(--cosmic-bg-primary);
+  --cyber-text: var(--cosmic-text-primary);
+  --cyber-muted: var(--cosmic-star-dim);
+}
+
+/* ============================================
+   Dark Mode — Deep Space
+   ============================================ */
+.dark {
+  --cosmic-bg-primary: #030308;
+  --cosmic-bg-secondary: #0a0a1a;
+  --cosmic-bg-card: rgba(10, 10, 30, 0.6);
+  --cosmic-accent-cyan: #06b6d4;
+  --cosmic-accent-purple: #8b5cf6;
+  --cosmic-accent-gold: #fbbf24;
+  --cosmic-accent-magenta: #e879f9;
+  --cosmic-star-bright: #ffffff;
+  --cosmic-star-dim: rgba(255, 255, 255, 0.4);
+  --cosmic-orbit-glow: rgba(6, 182, 212, 0.3);
+  --cosmic-text-primary: #e2e8f0;
+  --cosmic-text-glow: rgba(6, 182, 212, 0.8);
+  --cosmic-danger: #ff3860;
+  --cosmic-success: #10b981;
+  /* Backward-compat aliases for cyber-* CSS vars (dark) */
+  --cyber-primary: var(--cosmic-accent-cyan);
+  --cyber-accent: var(--cosmic-accent-purple);
+  --cyber-surface: var(--cosmic-bg-card);
+  --cyber-border: var(--cosmic-orbit-glow);
+  --cyber-bg: var(--cosmic-bg-primary);
+  --cyber-text: var(--cosmic-text-primary);
+  --cyber-muted: var(--cosmic-star-dim);
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+body {
+  background: var(--cosmic-bg-primary);
+  color: var(--cosmic-text-primary);
+  font-family: var(--font-sans);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
+}
+
+html { scroll-behavior: smooth; }
+
+::selection {
+  background: rgba(6, 182, 212, 0.35);
+  color: var(--cosmic-star-bright);
+}
+
+/* Scrollbar — Stellar minimal */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--cosmic-bg-primary); }
+::-webkit-scrollbar-thumb {
+  background: var(--cosmic-accent-purple);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cosmic-accent-cyan);
+  width: 6px;
+}
+
+/* ============================================
+   Keyframe Animations
+   ============================================ */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(6,182,212,0.3), 0 0 20px rgba(139,92,246,0.15); }
+  50% { box-shadow: 0 0 18px rgba(6,182,212,0.5), 0 0 40px rgba(139,92,246,0.3); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes constellation-draw {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes warp-stretch {
+  0% { transform: scaleX(1); opacity: 1; }
+  50% { transform: scaleX(0.01); opacity: 0.8; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes supernova-core {
+  0% { transform: scale(0); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes number-roll {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.glass {
+  background: var(--cosmic-bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--cosmic-orbit-glow);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--cosmic-accent-cyan), var(--cosmic-accent-purple), var(--cosmic-accent-magenta));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-border {
+  border: 1px solid var(--cosmic-orbit-glow);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.glow-border:hover {
+  border-color: var(--cosmic-accent-cyan);
+  box-shadow: 0 0 20px rgba(6,182,212,0.3), inset 0 0 10px rgba(6,182,212,0.05);
+}
+
+/* Hologram scanline overlay */
+.scanline-overlay {
+  position: relative;
+  overflow: hidden;
+}
+.scanline-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(6, 182, 212, 0.015) 2px,
+    rgba(6, 182, 212, 0.015) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Corner L-brackets for HUD panels */
+.hud-corners {
+  position: relative;
+}
+.hud-corners::before,
+.hud-corners::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+.hud-corners::before {
+  top: -1px; left: -1px;
+  border-top: 2px solid var(--cosmic-accent-cyan);
+  border-left: 2px solid var(--cosmic-accent-cyan);
+}
+.hud-corners::after {
+  bottom: -1px; right: -1px;
+  border-bottom: 2px solid var(--cosmic-accent-cyan);
+  border-right: 2px solid var(--cosmic-accent-cyan);
+}
+
+/* Hologram card */
+.card-hover {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+  cursor: pointer;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  border-color: var(--cosmic-accent-cyan);
+  box-shadow:
+    0 0 30px rgba(6,182,212,0.25),
+    0 8px 32px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* Markdown content styling — cosmic edition */
+.prose-custom { line-height: 1.8; }
+.prose-custom h2 {
+  margin-top: 2em; margin-bottom: 0.5em;
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--cosmic-text-primary);
+  letter-spacing: 0.05em;
+}
+.prose-custom h3 {
+  margin-top: 1.5em; margin-bottom: 0.5em;
+  font-size: 1.25rem; font-weight: 600;
+  color: var(--cosmic-accent-cyan);
+}
+.prose-custom p { margin-bottom: 1em; }
+.prose-custom a {
+  color: var(--cosmic-accent-cyan);
+  text-decoration: none;
+  background: linear-gradient(to right, var(--cosmic-accent-gold), var(--cosmic-accent-gold));
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.3s ease;
+}
+.prose-custom a:hover { background-size: 100% 1px; }
+.prose-custom code {
+  background: rgba(6, 182, 212, 0.1);
+  padding: 0.2em 0.4em; border-radius: 4px;
+  font-size: 0.9em; font-family: var(--font-mono);
+}
+.prose-custom pre {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1em; border-radius: 8px;
+  overflow-x: auto; margin-bottom: 1em;
+  border: 1px solid var(--cosmic-orbit-glow);
+}
+.prose-custom img { border-radius: 8px; max-width: 100%; height: auto; }
+.prose-custom table { width: 100%; border-collapse: collapse; margin-bottom: 1em; }
+.prose-custom th, .prose-custom td {
+  border: 1px solid var(--cosmic-orbit-glow);
+  padding: 0.5em 1em; text-align: left;
+}
+.prose-custom blockquote {
+  border-left: 3px solid var(--cosmic-accent-cyan);
+  padding-left: 1em; margin-left: 0;
+  color: var(--cosmic-star-dim);
+}
+.prose-custom strong { color: var(--cosmic-accent-gold); font-weight: 600; }
+
+/* Magnetic button base layer */
+.magnetic-wrapper {
+  display: inline-flex;
+}
+
+/* Hero title cosmic glow */
+.hero-title {
+  letter-spacing: 0.15em;
+  text-shadow:
+    0 0 20px rgba(6, 182, 212, 0.5),
+    0 0 60px rgba(139, 92, 246, 0.3),
+    0 0 100px rgba(6, 182, 212, 0.2);
+}
+
+/* ============================================
+   Accessibility
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Visible focus ring for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--cosmic-accent-cyan);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

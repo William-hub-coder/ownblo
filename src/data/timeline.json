@@ -1,0 +1,44 @@
+[
+  {
+    "type": "work",
+    "title": "Senior Frontend Developer",
+    "subtitle": "Tech Company Inc.",
+    "description": "Led the frontend team in building a modern web application using React and TypeScript. Improved performance by 40% and mentored junior developers.",
+    "startDate": "2023-01",
+    "icon": "💼"
+  },
+  {
+    "type": "work",
+    "title": "Frontend Developer",
+    "subtitle": "StartupXYZ",
+    "description": "Built responsive web applications with Next.js and Tailwind CSS. Implemented CI/CD pipelines and wrote comprehensive tests.",
+    "startDate": "2021-06",
+    "endDate": "2022-12",
+    "icon": "💼"
+  },
+  {
+    "type": "education",
+    "title": "B.S. Computer Science",
+    "subtitle": "University of Technology",
+    "description": "Focused on software engineering, algorithms, and human-computer interaction. Dean's List for 4 semesters.",
+    "startDate": "2017-09",
+    "endDate": "2021-06",
+    "icon": "🎓"
+  },
+  {
+    "type": "milestone",
+    "title": "First Open Source Contribution",
+    "subtitle": "GitHub",
+    "description": "Published first major open source project, gaining 500+ stars and contributions from developers worldwide.",
+    "startDate": "2020-03",
+    "icon": "🚀"
+  },
+  {
+    "type": "milestone",
+    "title": "Started Photography Journey",
+    "subtitle": "Personal",
+    "description": "Began exploring photography as a creative outlet. Specialized in urban landscapes and night photography.",
+    "startDate": "2019-01",
+    "icon": "📷"
+  }
+]

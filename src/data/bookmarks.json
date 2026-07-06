@@ -1,0 +1,10 @@
+[
+  { "id": "1", "title": "Next.js Documentation", "url": "https://nextjs.org/docs", "description": "The official Next.js documentation with guides and API references.", "category": "resource" },
+  { "id": "2", "title": "Tailwind CSS", "url": "https://tailwindcss.com", "description": "A utility-first CSS framework for rapidly building custom designs.", "category": "tool" },
+  { "id": "3", "title": "MDN Web Docs", "url": "https://developer.mozilla.org", "description": "Comprehensive web development documentation by Mozilla.", "category": "resource" },
+  { "id": "4", "title": "Figma", "url": "https://figma.com", "description": "Collaborative interface design tool for teams.", "category": "tool" },
+  { "id": "5", "title": "Dribbble", "url": "https://dribbble.com", "description": "Design inspiration and community for creatives.", "category": "inspiration" },
+  { "id": "6", "title": "GitHub", "url": "https://github.com", "description": "Code hosting platform for version control and collaboration.", "category": "tool" },
+  { "id": "7", "title": "Awwwards", "url": "https://www.awwwards.com", "description": "Website awards recognizing the best web designers and developers.", "category": "inspiration" },
+  { "id": "8", "title": "Vercel", "url": "https://vercel.com", "description": "Platform for frontend frameworks and static sites.", "category": "tool" }
+]

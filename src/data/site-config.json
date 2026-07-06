@@ -1,0 +1,12 @@
+{
+  "name": "Portfolio",
+  "title": "Creative Developer & Photographer",
+  "description": "Personal portfolio showcasing programming projects, photography, and writing.",
+  "url": "https://your-domain.com",
+  "ogImage": "/images/og-default.jpg",
+  "links": {
+    "github": "https://github.com/yourusername",
+    "twitter": "https://twitter.com/yourusername",
+    "email": "hello@your-domain.com"
+  }
+}

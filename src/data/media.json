@@ -1,0 +1,30 @@
+{
+  "files": [
+    {
+      "id": "0aded455-e363-4da3-967b-22467dee4805",
+      "filename": "d7be9ca5ff475d0ac1c672d10029b664.jpg",
+      "storedName": "0aded455-e363-4da3-967b-22467dee4805.jpg",
+      "path": "/uploads/2026/07/0aded455-e363-4da3-967b-22467dee4805.jpg",
+      "url": "/uploads/2026/07/0aded455-e363-4da3-967b-22467dee4805.jpg",
+      "type": "image",
+      "mimeType": "image/jpeg",
+      "size": 691485,
+      "tags": [],
+      "createdAt": "2026-07-06T09:05:21.044Z",
+      "updatedAt": "2026-07-06T09:05:21.044Z"
+    },
+    {
+      "id": "3a45e17d-4248-45b0-92b1-c385fc775e87",
+      "filename": "avatar.webp",
+      "storedName": "3a45e17d-4248-45b0-92b1-c385fc775e87.webp",
+      "path": "/uploads/2026/07/3a45e17d-4248-45b0-92b1-c385fc775e87.webp",
+      "url": "/uploads/2026/07/3a45e17d-4248-45b0-92b1-c385fc775e87.webp",
+      "type": "image",
+      "mimeType": "image/webp",
+      "size": 10054,
+      "tags": [],
+      "createdAt": "2026-07-06T10:01:30.479Z",
+      "updatedAt": "2026-07-06T10:01:30.479Z"
+    }
+  ]
+}

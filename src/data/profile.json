@@ -1,0 +1,26 @@
+{
+  "name": "Williamcheng",
+  "title": "Full-Stack Developer & Photographer",
+  "greeting_zh": "你好，我是",
+  "greeting_en": "Hi, I'm",
+  "bio_zh": "你好！我是一名热爱技术、摄影和写作的全栈开发者。我专注于构建美观且实用的 Web 应用，并在业余时间探索城市风光摄影。\n\n我相信技术应该服务于人，好的设计能够改变世界。在不断学习的过程中，我享受将创意转化为现实的过程。",
+  "bio_en": "Hi! I'm a full-stack developer passionate about technology, photography, and writing. I focus on building beautiful and functional web applications, and explore urban landscape photography in my spare time.\n\nI believe technology should serve people, and good design can change the world. I enjoy the process of turning creative ideas into reality through continuous learning.",
+  "location": "China, CS",
+  "role_zh": "全栈开发者",
+  "role_en": "Senior Developer",
+  "avatar_url": "/uploads/2026/07/3a45e17d-4248-45b0-92b1-c385fc775e87.webp",
+  "typewriter_zh": [
+    "全栈开发者",
+    "摄影爱好者",
+    "技术写作者",
+    "开源贡献者",
+    "UI/UX 设计师"
+  ],
+  "typewriter_en": [
+    "Full-Stack Developer",
+    "Photography Enthusiast",
+    "Tech Writer",
+    "Open Source Contributor",
+    "UI/UX Designer"
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "e-commerce-platform",
+    "title": "E-Commerce Platform",
+    "description": "A full-stack e-commerce platform built with Next.js, featuring real-time inventory management, Stripe payment integration, and an admin dashboard.",
+    "tech_stack": ["Next.js", "TypeScript", "PostgreSQL", "Stripe", "Tailwind CSS", "Prisma"],
+    "category": "web",
+    "github_url": "https://github.com/yourusername/ecommerce",
+    "demo_url": "https://demo-ecommerce.vercel.app",
+    "role": "Lead Frontend Developer",
+    "timeline": "Jan 2024 - Apr 2024 (4 months)",
+    "tech_challenges": "Implemented real-time inventory sync across multiple warehouses using WebSockets and optimistic UI updates. Built a custom Stripe checkout flow supporting multiple currencies and subscription models. Optimized database queries resulting in 60% reduction in page load times.",
+    "screenshots": [],
+    "featured": true,
+    "sort_order": 1
+  },
+  {
+    "slug": "ai-image-generator",
+    "title": "AI Image Generator",
+    "description": "An AI-powered image generation tool using Stable Diffusion, with a React frontend and Python FastAPI backend.",
+    "tech_stack": ["React", "Python", "FastAPI", "Stable Diffusion", "Docker", "Redis"],
+    "category": "web",
+    "github_url": "https://github.com/yourusername/ai-generator",
+    "demo_url": null,
+    "role": "Full-Stack Developer",
+    "timeline": "Oct 2023 - Dec 2023 (3 months)",
+    "tech_challenges": "Designed a queue system using Redis and Celery to handle image generation requests. Implemented progressive loading and WebSocket updates for real-time generation status. Optimized Docker container size from 2GB to 400MB.",
+    "screenshots": [],
+    "featured": false,
+    "sort_order": 2
+  },
+  {
+    "slug": "mobile-fitness-app",
+    "title": "Fitness Tracker App",
+    "description": "A cross-platform mobile fitness tracking app with workout plans, progress charts, and social features.",
+    "tech_stack": ["React Native", "TypeScript", "Node.js", "MongoDB", "AWS"],
+    "category": "mobile",
+    "github_url": "https://github.com/yourusername/fitness-app",
+    "demo_url": null,
+    "role": "Mobile Developer",
+    "timeline": "Jun 2023 - Sep 2023 (4 months)",
+    "tech_challenges": "Built a custom animation engine for workout transitions. Implemented offline-first architecture with local SQLite storage and cloud sync. Integrated with Apple Health and Google Fit APIs.",
+    "screenshots": [],
+    "featured": false,
+    "sort_order": 3
+  },
+  {
+    "slug": "design-system",
+    "title": "Component Design System",
+    "description": "A comprehensive design system with 50+ components, documentation site, and Figma integration.",
+    "tech_stack": ["React", "Storybook", "Figma", "CSS Modules", "TypeScript"],
+    "category": "design",
+    "github_url": "https://github.com/yourusername/design-system",
+    "demo_url": "https://design-system-demo.vercel.app",
+    "role": "Design Engineer",
+    "timeline": "Mar 2023 - May 2023 (3 months)",
+    "tech_challenges": "Created a token-based theming system supporting light/dark modes and custom brand colors. Built an automated visual regression testing pipeline using Chromatic. Integrated Figma API for two-way design token synchronization.",
+    "screenshots": [],
+    "featured": false,
+    "sort_order": 4
+  }
+]

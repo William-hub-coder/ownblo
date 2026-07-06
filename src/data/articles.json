@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "building-modern-portfolio",
+    "title": "Building a Modern Portfolio with Next.js",
+    "excerpt": "A comprehensive guide on building a performant portfolio website using Next.js 14, Tailwind CSS, and Framer Motion.",
+    "content": "## Introduction\n\nBuilding a personal portfolio is one of the best ways to showcase your skills and projects. In this guide, I'll walk through creating a modern, performant portfolio site using **Next.js 14** with the App Router.\n\n## Why Next.js?\n\nNext.js offers several key advantages:\n\n- **Server-Side Rendering (SSR)** for fast initial page loads\n- **Static Site Generation (SSG)** for blog and content pages\n- **App Router** with React Server Components\n- **Built-in Image Optimization** with `next/image`\n- **API Routes** for backend functionality\n- **Excellent Developer Experience**\n\n## Project Setup\n\n```bash\nnpx create-next-app@latest portfolio --typescript --tailwind --app\ncd portfolio\nnpm run dev\n```\n\nThis creates a new project with:\n- TypeScript for type safety\n- Tailwind CSS for styling\n- App Router for modern routing\n- ESLint for code quality\n\n## Styling with Tailwind CSS\n\nTailwind CSS provides utility-first classes that make styling fast and consistent.\n\n## Adding Animations with Framer Motion\n\nFramer Motion makes it easy to add beautiful animations to React components.\n\n## Performance Optimization\n\nTo achieve a Lighthouse score of 90+:\n\n1. **Use `next/image`** for automatic image optimization\n2. **Implement lazy loading** for below-fold content\n3. **Code split** heavy components with `dynamic()`\n4. **Inline critical CSS** for above-fold content\n5. **Use ISR** for content that changes occasionally\n\n## Deployment\n\nDeploying to Vercel is seamless:\n\n```bash\ngit push origin main\n```\n\n## Conclusion\n\nA well-built portfolio makes a lasting impression. Focus on clean design, fast performance, showcasing your best work, and clear navigation.\n\nHappy building! 🚀",
+    "tags": ["Next.js", "React", "Tutorial", "Web Development"],
+    "reading_time": 8,
+    "published": true,
+    "published_at": "2024-06-15"
+  },
+  {
+    "slug": "urban-night-photography",
+    "title": "The Art of Urban Night Photography",
+    "excerpt": "Tips and techniques for capturing stunning city nightscapes, from camera settings to post-processing workflows.",
+    "content": "## Introduction\n\nUrban night photography transforms ordinary cityscapes into magical scenes of light and shadow. This guide covers essential techniques.\n\n## Essential Gear\n\n- **Camera**: Full-frame or APS-C with good low-light performance\n- **Tripod**: Sturdy, essential for long exposures\n- **Lens**: Wide-angle (16-35mm) for cityscapes\n- **Remote Shutter**: To avoid camera shake\n\n## Camera Settings\n\n| Setting | Recommendation | Notes |\n|---------|---------------|-------|\n| Aperture | f/8 - f/11 | Sharp cityscapes |\n| Shutter | 2-30 seconds | Light trails |\n| ISO | 100-400 | Minimize noise |\n| Focus | Manual | Infinity or hyperfocal |\n\n## Composition Tips\n\n1. **Leading Lines** - Use roads and bridges\n2. **Reflections** - Water and glass surfaces\n3. **Foreground** - Add depth to compositions\n4. **Perspective** - Try unusual angles\n\n## Post-Processing\n\nIn Lightroom:\n- Adjust white balance for accurate colors\n- Reduce noise while preserving detail\n- Enhance contrast and clarity\n- Fine-tune individual color channels\n\n## Conclusion\n\nPatience and practice are key. The city transforms after dark — get out there and capture it!",
+    "tags": ["Photography", "Guide", "Urban"],
+    "reading_time": 6,
+    "published": true,
+    "published_at": "2024-05-20"
+  }
+]
