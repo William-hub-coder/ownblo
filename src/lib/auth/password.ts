@@ -9,6 +9,21 @@ const JWT_SECRET_KEY =
     ? ""
     : "admin-jwt-secret-dev-only-change-in-production");
 
+/** Maximum password length to prevent DoS via hash computation */
+const MAX_PASSWORD_LENGTH = 128;
+
+/**
+ * Constant-time string comparison to prevent timing attacks.
+ */
+function timingSafeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) {
+    diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  }
+  return diff === 0;
+}
+
 /**
  * Hash a password with SHA-256 + salt.
  * Returns: "salt:hash" hex-encoded string.
@@ -26,19 +41,30 @@ export async function hashPassword(password: string): Promise<string> {
 
 /**
  * Verify a password against a stored "salt:hash" string.
+ * Uses constant-time comparison on the hash portion.
  */
 export async function verifyPassword(
   password: string,
   stored: string,
 ): Promise<boolean> {
-  const [salt, originalHash] = stored.split(":");
+  // Reject unreasonably long passwords before hashing
+  if (password.length > MAX_PASSWORD_LENGTH) return false;
+
+  const parts = stored.split(":");
+  if (parts.length !== 2) return false;
+
+  const [salt, originalHash] = parts;
+  if (!salt || !originalHash) return false;
+
   const encoder = new TextEncoder();
   const data = encoder.encode(salt + ":" + password);
   const hash = await crypto.subtle.digest("SHA-256", data);
   const hex = Array.from(new Uint8Array(hash))
     .map((b) => b.toString(16).padStart(2, "0"))
     .join("");
-  return hex === originalHash;
+
+  // Constant-time comparison to prevent timing attacks
+  return timingSafeEqual(hex, originalHash);
 }
 
 /**
@@ -52,7 +78,7 @@ export async function createToken(
 
   const header = { alg: "HS256", typ: "JWT" };
   const now = Math.floor(Date.now() / 1000);
-  const fullPayload = { ...payload, iat: now, exp: now + expiresIn };
+  const fullPayload = { ...payload, iat: now, exp: now + expiresIn, jti: crypto.randomUUID() };
 
   const base64Header = btoa(JSON.stringify(header))
     .replace(/=/g, "")
@@ -89,6 +115,7 @@ export async function createToken(
 
 /**
  * Verify a JWT token and return its payload, or null if invalid/expired.
+ * Checks against the revocation store.
  */
 export async function verifyToken(
   token: string,
@@ -132,6 +159,12 @@ export async function verifyToken(
 
     // Check expiration
     if (payload.exp && payload.exp < Math.floor(Date.now() / 1000)) {
+      return null;
+    }
+
+    // Check revocation
+    const { isTokenRevoked } = await import("./session-store");
+    if (payload.jti && (await isTokenRevoked(payload.jti as string))) {
       return null;
     }
 

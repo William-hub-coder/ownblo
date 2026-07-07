@@ -2,13 +2,15 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { verifyToken } from "./password";
 
+const AUTH_COOKIE = "__Host-admin_token";
+
 /**
  * Verify admin authentication from cookie in API routes.
  * Returns an error Response if not authenticated, or null if authenticated.
  */
 export async function requireAdmin(): Promise<NextResponse | null> {
   const cookieStore = await cookies();
-  const token = cookieStore.get("admin_token")?.value;
+  const token = cookieStore.get(AUTH_COOKIE)?.value;
 
   if (!token) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
