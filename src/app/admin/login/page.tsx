@@ -19,7 +19,12 @@ export default function AdminLoginPage() {
     setStatus("loading");
     setErrorMsg("");
     try {
-      const res = await fetch("/api/admin/auth", {
+      // Append EdgeOne preview token if present
+      const eoParams = typeof window !== "undefined" ? sessionStorage.getItem("__eo_params__") || "" : "";
+      let url = "/api/admin/auth";
+      if (eoParams) url += (url.includes("?") ? "&" : "?") + eoParams;
+
+      const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password }),
