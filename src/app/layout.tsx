@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono, Noto_Sans_SC } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
+import EoTokenInjector from "@/components/layout/EoTokenInjector";
 import "./globals.css";
 
 const inter = Inter({
@@ -78,6 +79,7 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider messages={messages}>
+            <EoTokenInjector />
             {children}
           </NextIntlClientProvider>
         </ThemeProvider>

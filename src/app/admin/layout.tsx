@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -10,6 +11,7 @@ import { useState } from "react";
 import { adminT } from "@/lib/admin-i18n";
 import { ToastProvider } from "@/components/admin/Toast";
 import { UploadModal } from "@/components/admin/UploadModal";
+import { patchFetchForEoToken } from "@/lib/fetch-with-eo-token";
 
 const adminNav = [
   { key: "dashboard", href: "/admin", icon: LayoutDashboard },
@@ -26,6 +28,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const pathname = usePathname();
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => { patchFetchForEoToken(); }, []);
 
   const handleLogout = async () => {
     await fetch("/api/admin/auth", { method: "DELETE" });
